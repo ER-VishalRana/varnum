@@ -113,7 +113,7 @@ body.locked .wrap{visibility:hidden}`;
   <label class="f-confirm">Confirm password<input name="confirm" type="password" autocomplete="new-password" maxlength="100"></label>
   <div class="err" role="alert"></div>
   <button class="go" type="submit"></button>
-  <p class="note">Your account is saved in this browser on this device. · <a href="guide.html">How to write a letter in Hindi</a></p>
+  <p class="note">Your account is saved in this browser on this device. · <a href="https://varnum.alvvintechnology.com/guide.html">How to write a letter in Hindi</a></p>
 </form>`;
     document.body.appendChild(gate);
     const form = gate.querySelector("form"), err = gate.querySelector(".err"), go = gate.querySelector(".go");
