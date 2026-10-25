@@ -43,3 +43,4 @@ The `web/` folder is the same app as a website that runs in Chrome and can be in
 - Every push to `main` builds the APK on GitHub Actions and uploads it to the public `apk-latest` release.
 - `node scripts/build-site.mjs` puts all of it into `dist/` (it downloads the APK from that release).
 - Publish on Jarvis (production, deploy only): `ssh jarvis 'publish-site Varnum'`.
+- The APK on the website is re-signed on Jarvis with Varnum's own key (`/srv/sites/Varnum/keys`, never in git), so new versions install over old ones.

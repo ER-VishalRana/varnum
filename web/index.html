@@ -232,7 +232,7 @@ body.locked #fbBtn{display:none}
 #syncNote{margin:0 0 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 </style>
 
-<script src="auth.js?v=26"></script>
+<script src="auth.js?v=27"></script>
 </head>
 <body>
 <div class="wrap">
@@ -1944,7 +1944,7 @@ $("#delLetter").addEventListener("click",()=>setTimeout(()=>{const all=new Set(l
   const gone=known.filter(id=>!all.has(id));if(gone.length)store.set("letterDeletes",[...store.get("letterDeletes",[]),...gone.map(id=>({id,ts:Date.now()}))]);store.set("knownIds",[...all]);syncLetters()}));
 setInterval(()=>store.set("knownIds",letters().map(l=>l.id)),3000);store.set("knownIds",letters().map(l=>l.id));
 // An account from before the server existed: ask to sign in once more so letters can sync.
-function paintSyncNote(){let n=$("#syncNote");const need=!!window.varnumAuth&&!VA.token()&&!NATIVE;
+function paintSyncNote(){let n=$("#syncNote");const need=!!window.varnumAuth&&!VA.token();
   if(!need){n?.remove();return}
   if(n)return;n=document.createElement("div");n.id="syncNote";n.className="notice";
   n.append("Sign in once more to keep your letters on all your devices. ");const b=document.createElement("button");b.className="btn";b.type="button";b.textContent="Sign in again";
