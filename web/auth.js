@@ -1,10 +1,8 @@
-// Sign up / sign in screen for the web version of Varnum.
+// Sign up / sign in screen for Varnum (website and Android app).
 // Accounts live on the Varnum server (Jarvis), so they work on every device and saved letters sync.
 // A copy (salted PBKDF2 hash) is kept in this browser, so signing in still works without internet.
 // Accounts made before the server existed are moved to it the first time their owner signs in.
 (function () {
-  if (window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) return;
-
   const USERS = "anuvad-users", SESSION = "anuvad-session";
   const read = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } };
   const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch { return false; } };
@@ -113,7 +111,7 @@ body.locked .wrap{visibility:hidden}`;
   <label class="f-confirm">Confirm password<input name="confirm" type="password" autocomplete="new-password" maxlength="100"></label>
   <div class="err" role="alert"></div>
   <button class="go" type="submit"></button>
-  <p class="note">Your account is saved in this browser on this device. · <a href="https://varnum.alvvintechnology.com/guide.html">How to write a letter in Hindi</a></p>
+  <p class="note">Your saved letters follow you to every device you sign in on. · <a href="https://varnum.alvvintechnology.com/guide.html">How to write a letter in Hindi</a></p>
 </form>`;
     document.body.appendChild(gate);
     const form = gate.querySelector("form"), err = gate.querySelector(".err"), go = gate.querySelector(".go");

@@ -1,8 +1,8 @@
 // Keeps the app shell and its libraries cached so Varnum opens without internet.
 // Translation itself still needs internet unless Chrome's on-device translator is available.
-const CACHE = "varnum-v27";
+const CACHE = "varnum-v28";
 const SHELL = [
-  "./", "./index.html", "./auth.js?v=26", "./ui-hi.js?v=26", "./tools.js?v=26", "./sheet.js?v=26", "./manifest.webmanifest", "./logo.svg?v=26", "./favicon-32.png?v=26", "./icon-192.png", "./icon-512.png",
+  "./", "./index.html", "./auth.js?v=27", "./ui-hi.js?v=26", "./tools.js?v=26", "./sheet.js?v=26", "./manifest.webmanifest", "./logo.svg?v=26", "./favicon-32.png?v=26", "./icon-192.png", "./icon-512.png",
   "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js",
