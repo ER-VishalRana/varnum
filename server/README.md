@@ -21,13 +21,15 @@ Without it, the endpoint returns 503 and the website uses its free translators a
 
 On Jarvis (CPU only, about 3 GB RAM, roughly 3 to 5 seconds per line):
 
-1. Build llama.cpp (`cmake -B build && cmake --build build -j --target llama-server llama-quantize`).
-2. Get a GGUF of the model. If no ready Q4_K_M file is published, convert it yourself:
+1. Build llama.cpp CPU-only, `-DGGML_CUDA=OFF` (`cmake -B build && cmake --build build -j --target llama-server llama-quantize`).
+2. Get a GGUF of the model. Jarvis uses the ready `sarvam-translate.Q4_K_M.gguf` from
+   [mradermacher/sarvam-translate-GGUF](https://huggingface.co/mradermacher/sarvam-translate-GGUF). Or convert it yourself:
    `python convert_hf_to_gguf.py <sarvam-translate folder> --outfile sarvam-translate-f16.gguf`, then
    `llama-quantize sarvam-translate-f16.gguf sarvam-translate-Q4_K_M.gguf Q4_K_M`.
 3. Run it as a service bound to localhost, for example a systemd unit `varnum-llm`:
-   `llama-server -m /srv/data/models/sarvam-translate-Q4_K_M.gguf --host 127.0.0.1 --port 8104 -t 8 -c 4096 --jinja`
-4. Add `LLM_URL=http://127.0.0.1:8104` to `/srv/sites/VarnumApi/.env` and restart `site-varnumapi`.
+   `llama-server -m /srv/data/models/sarvam-translate-Q4_K_M.gguf --host 127.0.0.1 --port 8105 -t 8 -c 4096 --jinja -ngl 0`
+   (run as user `varnum-llm` with `CUDA_VISIBLE_DEVICES=` so the GPU stays free; port 8104 is used by another service)
+4. Add `LLM_URL=http://127.0.0.1:8105` to `/srv/sites/VarnumApi/.env` and restart `site-varnumapi`.
 5. Check: `curl -s -H 'Content-Type: application/json' -d '{"text":"Please look into this matter.","target":"hi"}' http://127.0.0.1:8103/api/translate`
 
 The API runs one translation at a time, keeps the last 5,000 answers in memory, and turns requests away (503 "busy")
