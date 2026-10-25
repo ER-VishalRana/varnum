@@ -228,6 +228,17 @@ async function llmTranslate(text, target) {
   const j = await r.json();
   return String(j.choices?.[0]?.message?.content || "").trim();
 }
+async function llmLines(text, target) {
+  const out = [];
+  for (const line of text.split("\n")) {
+    if (!/\p{L}/u.test(line)) { out.push(line); continue; }
+    const k = target + "|" + line.trim();
+    let r = tCache.get(k);
+    if (!r) { r = await llmTranslate(line.trim(), target); if (!r) throw new Error("empty"); tCache.set(k, r); }
+    out.push(line.match(/^\s*/)[0] + r.replace(/\s*\n\s*/g, " "));
+  }
+  return out.join("\n");
+}
 app.post("/api/translate", wrap(async (req, res) => {
   if (!LLM_URL) return res.status(503).json({ ok: false, error: "not_available" });
   const text = typeof req.body?.text === "string" ? req.body.text.trim() : "", target = clip(req.body?.target, 4);
@@ -237,13 +248,15 @@ app.post("/api/translate", wrap(async (req, res) => {
   if (tCache.has(key)) return res.json({ ok: true, text: tCache.get(key), cached: true });
   if (tWaiting >= 6) return res.status(503).json({ ok: false, error: "busy" });
   tWaiting++;
-  const job = tChain.then(() => llmTranslate(text, target));
+  // The model joins lines and can drop short ones ("Thanking you,"), so a letter goes one line at a time
+  // and keeps its blank lines and indents.
+  const job = tChain.then(() => llmLines(text, target));
   tChain = job.catch(() => {});
   let out;
   try { out = await job; } catch (e) { console.error("[varnum-api] translate", e.message); return res.status(502).json({ ok: false }); } finally { tWaiting--; }
   if (!out) return res.status(502).json({ ok: false });
   tCache.set(key, out);
-  if (tCache.size > 5000) tCache.delete(tCache.keys().next().value);
+  while (tCache.size > 5000) tCache.delete(tCache.keys().next().value);
   res.json({ ok: true, text: out });
 }));
 
