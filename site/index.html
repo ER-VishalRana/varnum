@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Varnum · Write letters in Hindi and 20+ languages, free</title>
+<meta name="description" content="Varnum is a free letter writer and translator. Type in English and get a formal letter in Hindi or 20+ languages as you type. 29 ready letters, PDF and Word, and Excel, Word, PowerPoint and PDF translation. Android app and web.">
+<link rel="canonical" href="https://varnum.alvvintechnology.com/">
+<meta name="theme-color" content="#f6f7f9">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Varnum · Write letters in Hindi, free">
+<meta property="og:description" content="Type in English, get a formal Hindi letter as you type. Free Android app and web app.">
+<meta property="og:url" content="https://varnum.alvvintechnology.com/">
+<meta property="og:image" content="https://varnum.alvvintechnology.com/img/app-desktop.webp">
+<link rel="icon" type="image/svg+xml" href="/app/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/app/favicon-32.png">
+<link rel="apple-touch-icon" href="/app/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&family=Sora:wght@500;600;700&family=Noto+Serif+Devanagari:wght@500&display=swap">
+<script>
+  // Old links and installed web apps pointed at the site root, where the app used to be.
+  // Send them to the app at /app/ so nothing breaks.
+  (function () {
+    var tabs = ["letter", "word", "excel", "ppt", "pdf", "tools"];
+    var h = (location.hash || "").slice(1);
+    var standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+    if (standalone || tabs.indexOf(h) >= 0) location.replace("/app/" + location.search + location.hash);
+  })();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Varnum","operatingSystem":"Android, Web","applicationCategory":"BusinessApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"url":"https://varnum.alvvintechnology.com/","downloadUrl":"https://varnum.alvvintechnology.com/download/varnum.apk","description":"Free bilingual letter writer: type in English and get a formal letter in Hindi or 20+ languages as you type."}
+</script>
+<style>
+:root{
+  --bg:#f6f7f9; --surface:#fff; --ink:#0f172a; --ink2:#1e293b; --muted:#5d6778; --line:#dbe1ea; --soft:#eef1f5;
+  --grad:linear-gradient(120deg,#1e293b,#334155 50%,#64748b); --ok:#15803d;
+  --head:"Sora","Mukta",system-ui,sans-serif; --ui:"Mukta","Nirmala UI",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;color-scheme:light}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:1.06rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--head);letter-spacing:-.02em;line-height:1.15;margin:0}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(246,247,249,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:22px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--head);font-weight:700;font-size:1.3rem}
+.brand img{border-radius:10px;box-shadow:0 6px 14px -6px rgba(30,41,59,.5)}
+.links{display:flex;gap:22px;margin-left:auto}
+.links a{text-decoration:none;color:var(--muted);font-weight:500}
+.links a:hover{color:var(--ink)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 20px;border-radius:12px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-family:var(--ui);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.dark{background:var(--grad);color:#fff;border:0;box-shadow:0 12px 26px -12px rgba(30,41,59,.75)}
+.btn.sm{padding:8px 16px;font-size:.95rem;border-radius:10px}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* hero */
+.hero{padding:64px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-200px -100px auto -100px;height:700px;background:radial-gradient(600px 340px at 15% 30%,rgba(100,116,139,.18),transparent 70%),radial-gradient(500px 300px at 85% 10%,rgba(148,163,184,.22),transparent 70%);z-index:-1}
+.hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem)}
+.hero h1 .hi{display:block;font-family:"Noto Serif Devanagari",serif;font-weight:500;letter-spacing:0;color:#475569;font-size:.62em;margin-top:12px}
+.hero p.lead{color:var(--muted);font-size:1.18rem;margin:18px 0 28px;max-width:34em}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.ctas .btn{padding:14px 22px;font-size:1.05rem}
+.meta{margin-top:14px;color:var(--muted);font-size:.9rem}
+.shot{position:relative}
+.browser{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(15,23,42,.45)}
+.browser .bar{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);background:#f8fafc}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:#cbd5e1}
+.phone{position:absolute;right:-18px;bottom:-36px;width:30%;border-radius:26px;border:7px solid #1e293b;overflow:hidden;box-shadow:0 30px 60px -24px rgba(15,23,42,.6);background:#fff}
+
+/* sections */
+section{padding:72px 0}
+.kicker{font-family:var(--head);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.sub{color:var(--muted);font-size:1.12rem;max-width:40em;margin:12px 0 0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.step b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--grad);color:#fff;font-family:var(--head);margin-bottom:14px}
+.step h3{font-size:1.15rem;margin-bottom:6px}
+.step p{margin:0;color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.f{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+.f .ic{width:42px;height:42px;border-radius:12px;background:var(--soft);display:grid;place-items:center;margin-bottom:14px}
+.f .ic svg{width:22px;height:22px;stroke:#334155}
+.f h3{font-size:1.08rem;margin-bottom:6px}
+.f p{margin:0;color:var(--muted);font-size:.98rem}
+.wide{margin-top:28px;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px -40px rgba(15,23,42,.4)}
+
+/* download band */
+.band{background:var(--grad);color:#fff;border-radius:28px;padding:48px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.band h2{color:#fff}
+.band .sub{color:#cbd5e1}
+.band .btn.light{background:#fff;color:var(--ink);border:0}
+.band .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.band ol{margin:0;padding-left:1.2em;color:#e2e8f0}
+.band ol li{margin:6px 0}
+.band .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:22px}
+.band .card h3{font-size:1.05rem;margin-bottom:8px;color:#fff}
+.band .meta{color:#cbd5e1}
+
+/* account */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.ticks{list-style:none;padding:0;margin:20px 0 26px}
+.ticks li{list-style:none}
+.ticks li{padding-left:30px;position:relative;margin:10px 0}
+.ticks li::before{content:"";position:absolute;left:0;top:.35em;width:18px;height:18px;border-radius:6px;background:var(--grad) center/12px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E")}
+.acct{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 30px 60px -44px rgba(15,23,42,.5)}
+.acct .who{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.acct .who img{border-radius:12px}
+.acct .row{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid var(--line);color:var(--muted)}
+.acct .row b{color:var(--ink);font-weight:600}
+
+/* faq */
+.faq{margin-top:28px;display:grid;gap:12px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+summary{cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--head);color:#64748b}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+footer .grow{flex:1}
+
+@media (max-width:900px){
+  .hero .grid,.band,.two{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .phone{right:-6px;bottom:-24px;width:30%}
+  .band{padding:32px 24px}
+  .links a.hide-sm{display:none}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .links{display:none}
+  #navSignin{display:none}
+  .nav .btn.dark{margin-left:auto}
+  .ctas .btn{white-space:normal}
+  .features{grid-template-columns:1fr}
+  .hero{padding-top:36px}
+  section{padding:52px 0}
+  .ctas .btn{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/app/logo-96.png" width="36" height="36" alt="">Varnum</a>
+    <nav class="links">
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+      <a href="#account" class="hide-sm">Account</a>
+      <a href="/guide.html" class="hide-sm">Hindi letter guide</a>
+    </nav>
+    <a class="btn sm" id="navSignin" href="/app/">Sign in</a>
+    <a class="btn sm dark" href="/app/">Open Varnum</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap grid">
+      <div>
+        <span class="pill"><i></i>Free · Android app and web</span>
+        <h1>Write in English. Send it in Hindi.
+          <span class="hi">अंग्रेज़ी में लिखें, पत्र हिंदी में पाएँ</span></h1>
+        <p class="lead">Varnum turns your English into a formal, correctly laid-out letter in Hindi or 20+ Indian and world languages, as you type. Print it, save it as PDF or Word, or send it on WhatsApp.</p>
+        <div class="ctas">
+          <a class="btn dark" href="/download/varnum.apk" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+            Download for Android</a>
+          <a class="btn" href="/app/">Use it in your browser</a>
+        </div>
+        <p class="meta">Android APK · {{APK_SIZE}} · version {{APK_VERSION}} · no Play Store needed</p>
+      </div>
+      <div class="shot">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i></div>
+          <img src="/img/app-desktop.webp" width="1600" height="938" alt="Varnum on a computer: an English bank letter on the left and the same letter in formal Hindi on the right">
+        </div>
+        <img class="phone" src="/img/app-phone.webp" width="520" height="960" alt="Varnum on a phone: the Hindi letter with buttons to download PDF, Word, WhatsApp and email" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="kicker">How it works</div>
+      <h2>A finished letter in three steps</h2>
+      <div class="steps">
+        <div class="step"><b>1</b><h3>Pick a letter or start blank</h3><p>Leave application, bank request, complaint, job application, school fee concession and 24 more, already filled with your name, address and today's date.</p></div>
+        <div class="step"><b>2</b><h3>Type or speak in English</h3><p>The Hindi (or Marathi, Gujarati, Tamil and more) appears beside it as you type, with formal words like सेवा में, महोदय and भवदीय in the right places.</p></div>
+        <div class="step"><b>3</b><h3>Print, save or send</h3><p>Download an A4 PDF or Word file with your letterhead and signature, or share it on WhatsApp and email straight away.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" style="padding-top:0">
+    <div class="wrap">
+      <div class="kicker">Features</div>
+      <h2>Everything for letters and office files</h2>
+      <p class="sub">One free app for the paperwork you do every week, in the language you need.</p>
+      <div class="features">
+        <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h10M4 19h7"/><path d="M17 15l3 3-3 3"/></svg></div><h3>Live translation</h3><p>Hindi and 20+ languages as you type, with Male/Female wording, Hindi numerals and the Hindi full stop (।).</p></div>
+        <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div><h3>29 ready letters</h3><p>Bank, school, police, office and job letters in groups, filled from your saved details. Mail merge for many people at once.</p></div>
+        <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a3 3 0 00-3 3v6a3 3 0 006 0V6a3 3 0 00-3-3z"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div><h3>Speak or scan</h3><p>Dictate your letter, or take a photo of a printed page and Varnum reads the text for you (English and Hindi).</p></div>
+        <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div><h3>Excel, Word, PowerPoint</h3><p>Open .xlsx, .docx and .pptx files, edit them, translate a column or the whole file, and save them again.</p></div>
+        <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6M9 14h6M9 18h4"/></svg></div><h3>PDF tools</h3><p>Write on a PDF, translate a whole PDF (even scanned ones), scan paper to a clean PDF, and add a QR code.</p></div>
+        <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div><h3>More Hindi tools</h3><p>Biodata maker, certificates and notices, Hindi letter check, Kruti Dev ↔ Unicode, reply letters and envelopes.</p></div>
+      </div>
+      <div class="wide"><img src="/img/app-tools.webp" width="1600" height="438" alt="The More tools tab: biodata maker, certificates and notices, Hindi letter check, Kruti Dev converter, reply to a letter, scan to PDF and envelope" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section id="download" style="padding-top:0">
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <div class="kicker" style="color:#cbd5e1">Android app</div>
+          <h2>Get Varnum on your phone</h2>
+          <p class="sub">The app works offline once the language pack is downloaded, and shows up in “Open with” for Excel, Word, PowerPoint and PDF files, so you can open them in Varnum instead of WPS.</p>
+          <div class="ctas" style="margin-top:26px">
+            <a class="btn light" href="/download/varnum.apk" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+              Download APK ({{APK_SIZE}})</a>
+            <a class="btn ghost" href="/app/">iPhone or computer? Open the web app</a>
+          </div>
+          <p class="meta">Version {{APK_VERSION}} · Android 6 or newer, 64-bit phones (almost every phone since 2019)</p>
+        </div>
+        <div class="card">
+          <h3>How to install</h3>
+          <ol>
+            <li>Tap <b>Download APK</b> on your Android phone.</li>
+            <li>Open the downloaded file. If Android asks, allow your browser to <b>install unknown apps</b>.</li>
+            <li>Tap <b>Install</b>, then open Varnum.</li>
+            <li>For a new version, download it again. If Android says the app can't be installed over the old one, uninstall the old Varnum first.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="account" style="padding-top:0">
+    <div class="wrap two">
+      <div>
+        <div class="kicker">Your account</div>
+        <h2>Sign in once, your letters follow you</h2>
+        <ul class="ticks">
+          <li>Create a free account with your email in the web app.</li>
+          <li>Saved letters and your details (name, address, letterhead) sync to every computer and phone browser you sign in on.</li>
+          <li>Signing in still works without internet; changes sync when you are back online.</li>
+          <li>Passwords are stored only as secure hashes.</li>
+        </ul>
+        <div class="ctas">
+          <a class="btn dark" href="/app/" id="acctBtn">Sign in or create account</a>
+        </div>
+      </div>
+      <div class="acct" aria-hidden="true">
+        <div class="who"><img src="/app/logo-96.png" width="44" height="44" alt=""><div><b style="font-family:var(--head)">Varnum account</b><div style="color:var(--muted);font-size:.92rem" id="acctState">Free · sync across devices</div></div></div>
+        <div class="row"><span>Saved letters</span><b>Synced</b></div>
+        <div class="row"><span>My details and letterhead</span><b>Synced</b></div>
+        <div class="row"><span>Price</span><b>Free</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="kicker">Questions</div>
+      <h2>Frequently asked</h2>
+      <div class="faq">
+        <details><summary>Is Varnum really free?</summary><p>Yes. Writing, translating, templates, PDF and Word downloads and the file tools are all free.</p></details>
+        <details><summary>Which languages does it support?</summary><p>Hindi, Marathi, Gujarati, Bengali, Punjabi, Tamil, Telugu, Kannada, Malayalam, Odia, Urdu, Nepali, Sanskrit, English and more. You can also type Hindi and get English back.</p></details>
+        <details><summary>Are my letters and files private?</summary><p>Files you open (Excel, Word, PowerPoint, PDF) are processed on your device and are not uploaded. If you sign in, your saved letters and details are stored on the Varnum server so they sync between your devices.</p></details>
+        <details><summary>Why is the app not on the Play Store?</summary><p>It is coming. Until then you can install the APK from this page. Android will ask once to allow installing apps from your browser.</p></details>
+        <details><summary>Does it work on iPhone?</summary><p>Yes, through the web app. Open <a href="/app/">varnum.alvvintechnology.com/app</a> in Safari and choose Share → Add to Home Screen.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/" style="font-size:1.05rem"><img src="/app/logo-96.png" width="28" height="28" alt="">Varnum</a>
+    <span class="grow"></span>
+    <a href="/app/">Web app</a>
+    <a href="/download/varnum.apk">Android APK</a>
+    <a href="/guide.html">How to write a letter in Hindi</a>
+    <span>© <span id="yr">2026</span> Alvvin Technology</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  const nav = document.getElementById("nav");
+  addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), { passive: true });
+  // If this browser is already signed in to the web app, say so.
+  try {
+    const s = JSON.parse(localStorage.getItem("anuvad-session") || "null");
+    if (s && s.email) {
+      document.getElementById("navSignin").textContent = "My letters";
+      document.getElementById("acctBtn").textContent = "Open my letters";
+      document.getElementById("acctState").textContent = "Signed in as " + s.email;
+    }
+  } catch (e) {}
+</script>
+</body>
+</html>
